@@ -1,0 +1,22 @@
+version: '3.8'
+
+services:
+  temperature:
+    image: temperature:latest
+    network_mode: "host"
+    privileged: true
+    container_name: temperature
+    env_file:
+      - .env
+    volumes:
+      - /usr/bin/vcgencmd:/usr/bin/vcgencmd:ro
+      - /lib/aarch64-linux-gnu/libvchiq_arm.so:/lib/aarch64-linux-gnu/libvchiq_arm.so:ro
+      - /lib/aarch64-linux-gnu/libvcos.so:/lib/aarch64-linux-gnu/libvcos.so:ro
+      - /lib/aarch64-linux-gnu/libc.so.6:/lib/aarch64-linux-gnu/libc.so.6:ro
+      - /lib/ld-linux-aarch64.so.1:/lib/ld-linux-aarch64.so.1:ro
+    environment:
+      - TOKEN=${TOKEN}
+      - CHAT_ID=${CHAT_ID}
+      - BASE=${BASE}
+      - PRIVATE_IP=${PRIVATE_IP}
+

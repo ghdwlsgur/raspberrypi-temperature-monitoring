@@ -1,0 +1,8 @@
+certifi==2024.7.4
+charset-normalizer==3.3.2
+idna==3.7
+requests==2.32.3
+schedule==1.2.2
+setuptools==71.1.0
+stdeb==0.10.0
+urllib3==2.2.2
